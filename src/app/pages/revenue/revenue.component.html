@@ -1,0 +1,95 @@
+<div class=" mainlayout-cont">
+  <div class="search-containerbox">
+    <div class="left-div">
+      <h2 class="region-heading">Revenue & Head Count</h2>
+    </div>
+
+    <div class="select-doctype">
+      <mat-form-field appearance="outline" class="type-select" id="doctTypeField">
+ <mat-select [(value)]="selectedMonth" (selectionChange)="filterByMonth()">
+    <mat-option value="">All Months</mat-option>
+    <mat-option *ngFor="let month of allMonth" [value]="month.value">
+      {{ month.label }}
+    </mat-option>
+  </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+<table class="mat-table full-width-table mat-elevation-z8" >
+
+  <!-- Header Row 1: Title -->
+  <thead>
+    <tr class="main-title-row">
+       <th rowspan="3" class="regioncol">Region</th>
+      <th colspan="6" id="revenueDate">Q1: Apr–June (25/26): Current Revenue Vs HC</th>
+      <th rowspan="3">Ideal HC Offshore<br>(9.5 Realization)</th>
+      <th rowspan="3">Ideal HC Nearshore<br>(22.5 Realization)</th>
+      <th rowspan="3">Excess Offshore<br>(9.5 Realization)</th>
+      <th rowspan="3">Excess Nearshore<br>(22.5 Realization)</th>
+      <th rowspan="3" id="plnaction">Plan Of Action</th>
+    </tr>
+
+    <!-- Header Row 2: Group Labels -->
+    <tr class="group-header-row">
+
+      <th colspan="2">Onsite</th>
+      <th colspan="2">Offshore</th>
+      <th colspan="2">Total Offshore + Onsite</th>
+
+    </tr>
+
+    <!-- Header Row 3: Column Labels -->
+    <tr class="sub-header-row">
+      <th>Revenue</th>
+      <th>HC</th>
+      <th>Revenue</th>
+      <th>HC</th>
+      <th>Revenue</th>
+      <th>HC</th>
+    </tr>
+  </thead>
+
+  <!-- Angular Material Data Rows -->
+  <tbody>
+    <tr *ngFor="let row of revenueData">
+      <td>{{ row.region }}</td>
+      <td>{{ row.onsite_revenue }}</td>
+      <td>{{ row.onsite_hc }}</td>
+      <td>{{ row.offshore_revenue }}</td>
+      <td>{{ row.offshore_hc }}</td>
+      <td>{{ row.totalRev | number: '1.2-2'}}</td>
+      <td>{{ row.totalHC | number: '1.2-2'}}</td>
+      <td>{{ row.ideal_hc_nearshore }}</td>
+      <td>{{ row.ideal_hc_offshore }}</td>
+      <td>{{ row.excess_offshore }}</td>
+      <td>{{ row.excess_nearshore }}</td>
+      <td>{{ row.plan_of_action }}</td>
+    </tr>
+  </tbody>
+
+</table>
+<!-- <pre>{{ revenueData | json }}</pre> -->
+
+<div class="revenue-grid">
+  <div class="revenue-card" *ngFor="let region of regions">
+    <h4 class="card-title">Revenue Breakup - {{ region.region }}</h4>
+
+    <div class="revenue-item" *ngFor="let item of region.items">
+      <div class="revenue-label">{{ item.label }}</div>
+      <div class="revenue-bar-container">
+        <div class="revenue-bar" [ngStyle]="{ 'background-color': item.color, 'width': item.width }"></div>
+      </div>
+      <div class="revenue-value">{{ item.formattedValue }}</div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="bottom-cont">
+        <div class="documents-add">
+        <button mat-raised-button color="primary" *ngIf="isTeamLeadOrPM()" (click)="openAddRevenuedialog()">Add</button>
+        </div>
+    </div>
+</div>

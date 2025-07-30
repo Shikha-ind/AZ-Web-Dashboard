@@ -1,0 +1,118 @@
+.two-column-container {
+  display: flex;
+  justify-content: flex-end;
+  /* gap: 16px; */
+}
+
+.column {
+  background: #ffffff;
+}
+.col-1 {
+  width: 15%;
+  height: 100vh;
+  background: #f4f7fe;
+}
+
+.col-2 {
+  width: 85%;
+}
+
+.col-3, .col-4 {
+  width: 48.5%;
+}
+.color-bor {
+    display: flex;
+    flex-direction: row;
+}
+.color {
+    width: 33%;
+    height: 28px;
+}
+.color.color-blue {
+    background-color: #0b4aa2;
+}
+.color.color-sky {
+    background-color: #15bcf3;
+}
+.color.color-red {
+    background-color: #e30b79;
+}
+.top-strip {
+  height: 30px;
+ background-color: #f2f8fe; 
+  width: 100%;
+  /* position: sticky; */
+  top: 0;
+  z-index: 1000;
+}
+.title {
+    font-size: 28px;
+    padding: 20px 0px 20px 40px;
+}
+
+.col-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.left-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 91.5vh;
+    align-items: center;
+}
+.logo-column img {
+    max-width: 140px;
+    height: auto;
+}
+.login-card {
+     width: 75%; 
+   padding: 32px;
+} 
+ .full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+h4.title-login {
+    font-size: 15px;
+}
+.userdata {
+    width: 100%;
+    height: 35px;
+    border: none;
+    /* border-bottom: 1px solid #d2c4c4; */
+    margin-top: 15px;
+}
+.userdata:focus-visible {
+    outline: none;
+    border-bottom: 1px solid gray;
+}
+.uname {
+    margin-top: 40px !important;
+}
+button.login-btn {
+    background-color: #e30b79 !important;
+    border-radius: 5px;
+    width: 35%;
+    color: white !important;
+    font-weight: 400;
+    height: 32px;
+    border: 1.5px solid #2c2929;
+    margin: 56px 0px 0px 16px;
+}
+p.reg-btn {
+    margin-top: 20px;
+}
+#roleSelect span {
+    font-size: 16px;
+    color: #56474e;
+}
+#registerBox, #register1Box, #register2Box {
+    padding: 0px 0px 5px;
+    border-bottom: 1px solid gray !important;
+    margin-top: 5px;
+}
+/* mat-select#registerBox {
+    margin-left: -13px;
+} */

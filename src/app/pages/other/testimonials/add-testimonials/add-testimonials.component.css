@@ -1,0 +1,16 @@
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.file-upload-section {
+  margin: 10px 0;
+}
+.full-width{
+    height: 90px;
+}
+.testimonial-form {
+    margin: 20px;
+}
+

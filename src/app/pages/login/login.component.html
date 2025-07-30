@@ -1,0 +1,76 @@
+<div class="two-column-container">
+  <div class="column col-1">
+        <div class="color-bor">
+            <div class="color color-blue"></div>
+            <div class="color color-sky"></div>
+            <div class="color color-red"></div>
+        </div>
+        <nav>
+            <div class="left-col">
+                <div class="logo-column">
+                    <img [src]="astraLogo">
+                </div>
+                <div class="logo-column">
+                <img [src]="indeLogo">
+                </div>
+            </div>
+        </nav>
+        <div class="color-bor">
+            <div class="color color-blue"></div>
+            <div class="color color-sky"></div>
+            <div class="color color-red"></div>
+        </div>
+  </div>
+    <div class="column col-2">
+        <div class="top-strip"></div>
+        <h2 class="title">Welcome To AZ- Web World</h2>
+        <div class="two-column-container cols">
+            <div class="column col-3">  
+                <div class="login-card">
+                    <h4 class="title-login">Welcome back! Please login to your account.</h4>
+
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="outline" class="w-full userdata">
+                        <input matInput formControlName="emailId" type="email" placeholder="Username" id="loginBox">
+                            <mat-error *ngIf="loginForm.get('emailId')?.hasError('required')" id="loError">
+                                Email is required
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.get('emailId')?.hasError('email')" id="loError">
+                                Enter a valid email
+                            </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full userdata">
+                        <input matInput formControlName="password" type="password" placeholder="Password" id="loginsBox">
+                        <mat-error *ngIf="loginForm.get('password')?.hasError('required')" id="loError">
+                        Password is required
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')" id="loError">
+                        Password must be at least 6 characters
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="login-btton">
+                    <button mat-raised-button color="primary" type="submit" class="login-btn">Login</button>
+                    </div>
+                    <p>{{ message }}</p>
+                    </form>
+
+        <!--  Add Register button -->
+            <div style="margin-top: 1rem;">
+                <!-- <p>If you not have account? 
+                        <a [routerLink]="['/register']">Register here</a>
+                </p> -->
+                                <p>If you forgot your password? 
+                        <a [routerLink]="['/forgot-password']">Reset here</a>
+                </p>
+            </div>
+            </div>
+        </div>
+           
+            <div class="column col-4">
+                <img [src]="mainImage">
+            </div>
+        </div>
+    </div>
+  
+</div>

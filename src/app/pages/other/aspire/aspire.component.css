@@ -1,0 +1,150 @@
+.aspire-card {
+  background-color: white;
+  padding: 5px 13px;
+  box-shadow: var(--mat-app-elevation-shadow-level-8, none);
+}
+.appriciation {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 2px;
+}
+
+p.top-appriciation {
+    margin-top: -5px;
+}
+
+.testimonial-right {
+      height: 200px;
+    text-align: center;
+    position: relative;
+    padding: 0px;
+    border-radius: 5px;
+    box-shadow: var(--mat-app-elevation-shadow-level-8, none);
+}
+.team-reg {
+    padding: 10px 10px 0px;
+}
+.testimonial-right img {
+  width: 100%;
+  height: 55%;
+}
+
+.badge-ribbon {
+    position: absolute;
+    top: -6px;
+    left: -18px;
+    padding: 5px;
+    border-radius: 4px;
+}
+img.budges {
+    width: 51% !important;
+}
+.section-title {
+  color: #0c3781;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.to-label {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.mail-icon {
+  vertical-align: middle;
+  color: #1976d2;
+  margin-right: 5px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.from-text {
+  font-weight: 500;
+  text-align: right;
+}
+
+.subtext {
+  font-size: 12px;
+  color: gray;
+}
+img.envelop {
+    width: 7%;
+    margin-right: 10px;
+}
+button#thumb mat-icon {
+    background-color: #0b4aa2;
+    color: white;
+    width: 100%;
+    padding: 1px 26px 0px 10px;
+    border-radius: 5px;
+}
+
+.btn.active {
+  background-color: #3f51b5; /* Angular Material primary color */
+  box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.2);
+}
+button.thumb-up {
+    font-size: 16px;
+    color: white;
+    background-color: #0b4aa2;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 1px 15px;
+ margin-left: 2px;
+}
+
+.carousel-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 16px;
+}
+
+.custom-paginator {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-paginator button {
+  margin: 0 4px;
+}
+
+.custom-paginator button.active {
+  background-color: #3f51b5;
+  color: white;
+}
+.aspire-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px
+}
+p.aspire-url {
+    padding: 10px 0px 20px;
+}
+.award-para p {
+    font-size: 15px;
+    font-weight: bold;
+}
+span.name-award {
+    color: #e30b79;
+}
+.mainlayout-cont {
+  min-height: 92vh !important;
+}
+.award-para {
+    padding: 10px 0px;
+}
+

@@ -1,0 +1,83 @@
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.dialog-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+.team-label{
+        margin-top: -7px;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c508571215-1.mdc-text-field--filled.mdc-text-field--invalid {
+    height: 40px !important;
+}
+.add-team-container[_ngcontent-ng-c3925472994] {
+    overflow: auto !important;
+    height: 65vh !important;
+    padding: 20px 20px 10px;
+}
+.image-upload-bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dad2e7;
+    width: 30%;
+    border-radius: 5px;
+    height: 50px;
+    margin-top: 10px;
+}
+.image-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#upload{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 7px !important;
+}
+.add-btn-col{
+     background-color: #343434;
+    color: white;
+}
+.close-btn-col{
+    background-color: #e30b79;
+    color: white;
+}
+
+.mat-mdc-dialog-actions.mat-mdc-dialog-actions-align-end, .mat-mdc-dialog-actions[align=end]
+ {
+    justify-content: center;
+}
+.image-preview.ng-star-inserted img
+ {
+    width: 37%;
+}
+mat-form-field.mat-mdc-form-field.half-width.ng-tns-c508571215-14.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary.ng-pristine.ng-valid.ng-star-inserted.ng-touched {
+    width: 12%;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#skillLevel {
+    width: 29%;
+}
+#plusButton {
+  background: #343434;
+    color: white;
+    border-radius: 25px;
+    width: 43%;
+    box-shadow: none;
+    font-size: 13px;
+}
+#plusButton mat-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color {
+    margin-top: 0px !important;
+}

@@ -1,0 +1,14 @@
+.form-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  /* margin-bottom: 16px; */
+}
+
+.half-width {
+  flex: 1;
+  min-width: 0;
+}
+form#addDocument {
+  padding: 20px 20px 5px;
+}

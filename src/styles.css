@@ -1,0 +1,311 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; 
+    /* font-family: Montserrat; */
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+;
+}
+
+.mat-mdc-text-field-wrapper{
+    height: 40px !important;
+ }
+ a.active {
+    /* color: #e30b79 !important; */
+    color: #ffffff !important;
+    background-color: #0b4aa2;
+}
+span.mat-mdc-select-min-line {
+    font-size: 13px;
+}
+.mdc-text-field--outlined .mat-mdc-form-field-infix, .mdc-text-field--no-label .mat-mdc-form-field-infix
+ {
+    top: -8px;
+ }
+ #alldata-get mat-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color
+ {
+    margin-top: -6px ;
+}
+mat-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color, input  {
+    margin-top: -13px !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #ffffff00 !important;
+    border: 1px solid gray;
+    border-radius: 0px;
+    margin-top: 10px;
+    padding: 0px 11px;
+}
+.mdc-text-field{
+    overflow: unset;
+}
+ .mat-mdc-notch-piece{
+    border: none !important;
+}
+
+#roleSelect #mat-select-value-7 {
+    margin-left: -12px !important;
+}
+
+#userdata .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+    border: none !important;
+    border-bottom: 1px solid gray !important;
+    border-radius: 10px;
+}
+#alldata-get .mdc-text-field--outlined .mdc-notched-outline, #doctTypeField .mdc-notched-outline.mdc-notched-outline--no-label
+ {
+    border: 1px solid;
+    /* border-bottom: none; */
+    border-radius: 10px;
+}
+
+#roleSelect span.mat-mdc-select-min-line {
+    font-size: 13px;
+    color: #444754;
+}
+.mat-mdc-form-field-error {
+    margin-left: -13px !important;
+}
+.mdc-line-ripple::before, .mdc-line-ripple::after {
+    border-bottom-style: none !important;
+}
+#image-upload input#mat-input-8 {
+    margin: 9px 0px 9px 10px !important;
+}
+#date-picker .mdc-icon-button.mat-mdc-icon-button.mat-unthemed.mat-mdc-button-base {
+    margin-top: -15px !important;
+}
+button.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base {
+    background-color: #e30b79;
+    color: white;
+}
+.mainlayout-cont {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+     margin: 0 20px;
+}
+.search-containerbox {
+    padding: 5px 0px 0px;
+    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.left-div {
+    flex: 1;
+}
+.right-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 30px;
+    flex: 1;
+}
+.bottom-cont{
+    margin: auto 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    font-size: 13px;
+}
+#top-form-color {
+    background-color: #f4f7fe;
+    padding: 0px 20px;
+}
+h2#form-headinghtwo {
+    padding: 0px;
+    border-bottom: 2px solid #9a0752;
+    width: 173px;
+    font-size: 20px;
+    color: #07326e;
+}
+/* .mat-mdc-form-field-error {
+    margin-left: -13px;
+} */
+
+/* paginator */
+.custom-paginator {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-paginator button {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.custom-paginator button.active {
+  background-color: #0d47a1; /* dark blue */
+  color: white;
+}
+.mat-mdc-form-field-infix.ng-tns-c508571215-14 {
+    padding: 15px 0px;
+}
+h2.region-heading {
+    font-weight: bold;
+    padding: 5px;
+}
+.mat-mdc-dialog-inner-container.mdc-dialog__container {
+    /* max-width: 900px;
+    /* margin-left: 86px; */
+    width: 900px;
+    margin-left: 85px;
+}
+/* .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 773px !important;
+} */
+.image-upload-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dad2e7;
+    width: 30%;
+    border-radius: 5px;
+    height: 50px;
+    margin-top: 10px;
+}
+.image-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#upload {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 7px !important;
+}
+button.close-btn-col {
+    background-color: #e30b79;
+    color: white !important;
+}
+.add-btn-col {
+    background-color: #343434 !important;
+    color: white !important;
+}
+.mat-mdc-dialog-actions.mdc-dialog__actions.mat-mdc-dialog-actions-align-end {
+    justify-content: center;
+}
+button#region-name .mdc-button__label {
+    background: #3e3e3e;
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+button#service-name .mdc-button__label {
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #e30b79;
+    color: white;
+    padding: 4px 15px;
+}
+button#service-name {
+    background: none;
+    box-shadow: none;
+    padding: 0px;
+}
+.pagination-dots button.mdc-button.mat-mdc-button {
+    border: 1px solid;
+    padding: 0px;
+    margin: 9px;
+    min-width: 12px;
+    height: 12px;
+    border-radius: 25px !important;
+}
+button#yesdelete {
+    background-color: #e30b79;
+    color: #ffffff;
+    padding: 0px 35px;
+}
+button#nodelete {
+    background-color: #343434;
+    color: #ffffff;
+    padding: 0px 35px;
+}
+.strong-skill .mdc-linear-progress__bar-inner {
+    border-color: #15bcf3 !important;
+}
+.moderate-skill .mdc-linear-progress__bar-inner {
+   border-color: #0b4aa2 !important; /* Light yellow */
+}
+
+.weak-skill .mdc-linear-progress__bar-inner{
+  border-color: #e30b79 !important; 
+}
+p.delete-cont {
+    text-align: center;
+    padding-top: 65px;
+    font-weight: bold;
+}
+mat-error#loError {
+    margin-left: -2px !important;
+}
+.image-preview.ng-star-inserted img
+ {
+    width: 120px;
+    height: 48px;
+}
+.file-preview.ng-star-inserted {
+    font-size: 10px;
+}
+mat-error#file-error {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+}
+table#documentTable {
+    min-width: 100%;
+}
+th {
+  background-color: #ffffff !important;
+color: #0b4aa2;
+}
+tr:nth-child(odd) {
+  background-color: #f9f9f9; /* light gray */
+}
+tr:nth-child(even) {
+  background-color: #ffffff; /* white */
+}
+td, th {
+  border: none !important;
+}
+button.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base {
+    background-color: #e30b79;
+    color: white;
+}
+input#docSearch {
+    font-size: 13px;
+}
+.form-row {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  /* margin-bottom: 16px; */
+}
+
+.half-width {
+  flex: 1;
+  min-width: 0;
+}
+form#addDocument {
+  padding: 20px 20px 5px;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c508571215-14.mdc-text-field--filled.mdc-text-field--no-label {
+    padding: 0px 6px !important;
+}
+.full-width {
+    width: 100%;
+}
+:focus-visible {
+    outline: 0px !important;
+}
+mat-dialog-container#issueDetail {
+    max-width: 770px;
+    margin-left: -80px;
+}
+#pro-date button.mdc-icon-button.mat-mdc-icon-button.mat-unthemed.mat-mdc-button-base {
+    margin-top: -13px;
+}

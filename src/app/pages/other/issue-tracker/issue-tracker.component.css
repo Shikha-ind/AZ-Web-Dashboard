@@ -1,0 +1,21 @@
+
+.mainlayout-cont {
+    min-height: 92vh !important;
+}
+th {
+    font-size: 13px;
+}
+th, td {
+    padding: 10px !important;
+}
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-action.mat-column-action,
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-status.mat-column-status  {
+    width: 11%;
+}
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-issue_description.mat-column-issue_description {
+    width: 15%;
+}
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-campaign_name.mat-column-campaign_name
+ {
+    width: 12%;
+}

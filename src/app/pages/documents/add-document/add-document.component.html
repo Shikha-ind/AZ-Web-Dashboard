@@ -1,0 +1,63 @@
+<div class="res-heading" id="top-form-color">
+<h2 mat-dialog-title id="form-headinghtwo">Add Document</h2>
+</div>
+<form [formGroup]="documentForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="addDocument">
+
+  <!-- Row 1: File Name + Related To -->
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="file_name" placeholder="File Name" required/>
+       <mat-error *ngIf="documentForm.get('file_name')?.touched && documentForm.get('file_name')?.hasError('required')">File Name is required</mat-error>
+       <mat-error *ngIf="documentForm.get('file_name')?.touched && documentForm.get('file_name')?.hasError('minlength')">File Name must be at least 3 characters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="related_to" placeholder="Related To" required/>
+        <mat-error *ngIf="documentForm.get('related_to')?.touched && documentForm.get('related_to')?.hasError('required')">Related To is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <!-- <input matInput formControlName="type" placeholder="Type" required/> -->
+      <mat-select formControlName="type" placeholder="Type">
+          <mat-option *ngFor="let doctype of documentType" [value]="doctype.document_name">
+           {{ doctype.document_name }}
+         </mat-option>
+       </mat-select>
+      <mat-error *ngIf="documentForm.get('type')?.touched && documentForm.get('type')?.hasError('required')">Type is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <!-- <input matInput formControlName="region" placeholder="Region" required/> -->
+          <mat-select formControlName="region" placeholder="Region">
+         <mat-option *ngFor="let region of regions" [value]="region">
+          {{ region }}
+        </mat-option>
+        </mat-select>
+      <mat-error *ngIf="documentForm.get('region')?.touched && documentForm.get('region')?.hasError('required')">Region is required</mat-error>
+    </mat-form-field>
+  </div>
+  
+
+  <!-- Row 3: File Upload -->
+  <div class="form-row" id="image-upload">
+    <div class="image-upload-bg">
+      <label for="fileInput" class="upload-icon-label">
+        <mat-icon class="upload" id="upload">upload</mat-icon></label>
+      <input type="file" name="action" id="fileInput" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp3" hidden required />
+      <div class="file-preview" *ngIf="selectedFileName">
+        <small>Selected: {{ selectedFileName }}</small>
+      </div>
+    </div>
+  </div>
+  <mat-error *ngIf="fileTypeError">{{ fileTypeError }}</mat-error>
+
+  <!-- Actions -->
+  <div mat-dialog-actions align="end">
+    <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+    <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="!documentForm.valid || !selectedFile">
+      Save
+    </button>
+  </div>
+</form>

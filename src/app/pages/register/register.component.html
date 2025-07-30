@@ -1,0 +1,95 @@
+<div class="two-column-container">
+  <!-- Left column: Logos and color borders -->
+  <div class="column col-1">
+    <div class="color-bor">
+      <div class="color color-blue"></div>
+      <div class="color color-sky"></div>
+      <div class="color color-red"></div>
+    </div>
+    <nav>
+      <div class="left-col">
+        <div class="logo-column">
+          <img [src]="astraLogo" alt="Astra Logo">
+        </div>
+        <div class="logo-column">
+          <img [src]="indeLogo" alt="Inde Logo">
+        </div>
+      </div>
+    </nav>
+    <div class="color-bor">
+      <div class="color color-blue"></div>
+      <div class="color color-sky"></div>
+      <div class="color color-red"></div>
+    </div>
+  </div>
+
+  <!-- Right column: Registration form and additional content -->
+  <div class="column col-2">
+    <div class="top-strip"></div>
+    <h2 class="title">Welcome to AZ web world</h2>
+    <div class="two-column-container cols">
+      <div class="column col-3">  
+        <div class="login-card">
+          <h4 class="title-login">User Registration</h4>
+         
+          <!-- Registration Form -->
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+              <mat-form-field appearance="outline" class="w-full userdata">
+              <input matInput formControlName="name" placeholder="Name" id="registerBox">
+               <mat-error *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.hasError('required')" id="loError">Name is required</mat-error>
+               <mat-error *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.hasError('minlength')" id="loError">Name must be at least 3 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-full userdata">
+              <input matInput formControlName="emailId" type="email" placeholder="Email" id="register1Box">
+                <mat-error *ngIf="registerForm.get('emailId')?.touched && registerForm.get('emailId')?.hasError('required')" id="loError">Email is required</mat-error>
+             <mat-error *ngIf="registerForm.get('emailId')?.touched && registerForm.get('emailId')?.hasError('email')" id="loError">Enter a valid email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-full userdata">
+              <input matInput formControlName="password" type="password" placeholder="Password" id="register2Box">
+              <mat-error *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('required')" id="loError">Password is required</mat-error>
+              <mat-error *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('minlength')" id="loError">Password must be at least 6 characters</mat-error>
+            </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-full userdata" id="userdata">
+            
+                <!-- <mat-label>Role</mat-label> -->
+                <mat-select formControlName="role" id="roleSelect" id="registerBox">
+                   <mat-option value="" disabled>
+                    Select Role
+                  </mat-option>
+                <mat-option *ngFor="let role of roles" [value]="role.role">
+                  {{ role.role }}
+                </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="registerForm.get('role')?.touched && registerForm.get('role')?.hasError('required')" id="loError">
+                    Role is required
+                </mat-error>
+                </mat-form-field>
+
+            <div class="login-btton">
+            <button mat-raised-button color="primary" class="login-btn" type="submit">
+              Register
+            </button>
+            </div>
+          </form>
+
+          <!-- Display message if available -->
+    <div *ngIf="message" style="margin-top: 1rem; color: green;">{{ message }}</div>
+
+          <p class="reg-btn">Already have an account? 
+            <a [routerLink]="['/login']">Login here</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right side image -->
+      <div class="column col-4">
+        <img [src]="mainImage" alt="Main Image">
+      </div>
+    </div>
+  </div>
+</div>

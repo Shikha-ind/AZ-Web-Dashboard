@@ -1,0 +1,60 @@
+<div id="top-form-color">
+<h2 mat-dialog-title id="form-headinghtwo">Testimonial Details</h2>
+</div>
+<div class="add-testimonial-container">
+    <form [formGroup]="testimonialform" (ngSubmit)="submit()" class="testimonial-form">
+
+      <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+        <input matInput formControlName="to" placeholder="To" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+        <input matInput formControlName="from" placeholder="From" required />
+    </mat-form-field>
+    </div>
+
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <mat-select formControlName="service_name" placeholder="Service Type">
+        <mat-option *ngFor="let service of serviceTypes" [value]="service">
+          {{ service }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+        <mat-select formControlName="region_name" placeholder="Region">
+         <mat-option *ngFor="let region of regions" [value]="region">
+          {{ region }}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+    
+
+    <mat-form-field appearance="fill" class="full-width">
+        <textarea matInput formControlName="content" rows="4" placeholder="Content"></textarea>
+    </mat-form-field>
+
+    <!-- Image Upload Section -->
+    <div class="image-upload" id="image-upload">
+      <div class="image-upload-bg">
+        <label for="imageInput" class="upload-icon-label">
+          <mat-icon class="upload" id="upload">upload</mat-icon>
+        </label>
+        <input type="file" id="imageInput" (change)="onImageSelected($event)" accept="image/*" hidden />
+
+        <div class="image-preview" *ngIf="imagePreview">
+          <img [src]="imagePreview" alt="Preview" />
+        </div>
+      </div>
+    </div>
+    
+        <!-- Dialog Actions -->
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="testimonialform.invalid">Save</button>
+    </div>
+</form>
+</div>

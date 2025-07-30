@@ -1,0 +1,63 @@
+<div class="two-column-container">
+  <div class="column col-1">
+     <div class="color-bor">
+            <div class="color color-blue"></div>
+            <div class="color color-sky"></div>
+            <div class="color color-red"></div>
+        </div>
+       <nav class="vertical-nav">
+            <div class="left-col">
+                    <div class="logo-column">
+                        <img [src]="astraLogo" id="ast-logo">
+                        <!-- <a routerLink="project-report" routerLinkActive="active"><img [src]="project" id="link-nav">Project Report</a>
+                        <a routerLink="team" routerLinkActive="active"><img [src]="team" id="link-nav"> Teams</a>
+                        <a routerLink="documents" routerLinkActive="active"><img [src]="document" id="link-nav"> Documents</a>
+                        <a routerLink="other" routerLinkActive="active"><img [src]="other" id="link-nav"> other</a> -->
+                    
+                       <a routerLink="project-report" routerLinkActive="active" #rla1="routerLinkActive">
+                        <img [src]="rla1.isActive ? '../icons/active-project.png' : '../icons/project-report.png'" id="link-nav">
+                        Project Report
+                        </a>
+
+                        <a routerLink="revenue" routerLinkActive="active" #rla5="routerLinkActive">
+                        <img [src]="rla5.isActive ? '../icons/active-project.png' : '../icons/project-report.png'" id="link-nav">
+                        Revenue & HC
+                        </a>
+
+                        <a routerLink="team" routerLinkActive="active" #rla2="routerLinkActive">
+                        <img [src]="rla2.isActive ? '../icons/active-team.png' : '../icons/team.png'" id="link-nav">Teams
+                        </a>
+
+                        <a routerLink="documents" routerLinkActive="active" #rla3="routerLinkActive">
+                        <img [src]="rla3.isActive ? '../icons/active-document.png' : '../icons/document.png'" id="link-nav"> Documents
+                        </a>
+
+                        <a routerLink="other" routerLinkActive="active" #rla4="routerLinkActive">
+                        <img [src]="rla4.isActive ? '../icons/active-other.png' : '../icons/other.png'" id="link-nav"> Other
+                        </a>
+ 
+                    </div>
+                
+                    <div class="logo-column">
+                     <img [src]="indeLogo" id="indelogo">
+                    </div>
+                
+            </div>
+        </nav>
+       <div class="color-bor">
+            <div class="color color-blue"></div>
+            <div class="color color-sky"></div>
+            <div class="color color-red"></div>
+        </div>
+  </div>
+   <div class="column col-2">
+       <div class="top-strip">
+        <div class="logout-btn">
+        <button mat-button color="warn" (click)="logout()">Logout</button>
+        </div>
+       </div>
+         <router-outlet></router-outlet>
+    </div>
+
+</div>
+ 

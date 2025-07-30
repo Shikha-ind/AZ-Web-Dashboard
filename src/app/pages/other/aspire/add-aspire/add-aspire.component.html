@@ -1,0 +1,59 @@
+<div id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Aspire Details</h2>
+</div>
+<div class="add-aspire-container">
+  <form [formGroup]="aspireForm" (ngSubmit)="onSubmit()" class="aspire-form">
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="to" placeholder="To" required />
+      <mat-error *ngIf="aspireForm.get('to')?.hasError('required')">To is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="from" placeholder="From" required />
+      <mat-error *ngIf="aspireForm.get('from')?.hasError('required')">From is required</mat-error>
+    </mat-form-field>
+    </div>
+
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <mat-select formControlName="service_name" placeholder="Service Type" required>
+        <mat-option *ngFor="let service of serviceTypes" [value]="service">{{ service }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="aspireForm.get('service_name')?.hasError('required')">Service type is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <mat-select formControlName="region_name" placeholder="Region" required>
+        <mat-option *ngFor="let region of regions" [value]="region">{{ region }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="aspireForm.get('region_name')?.hasError('required')">Region is required</mat-error>
+    </mat-form-field>
+    </div>
+
+     <div class="form-row">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-select formControlName="award_type" placeholder="Award Type" required>
+        <mat-option *ngFor="let awardtype of awardType" [value]="awardtype">{{awardtype}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="aspireForm.get('awardType')?.hasError('required')">Award type is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-select formControlName="award_name" placeholder="Award Name" required>
+        <mat-option *ngFor="let awardname of awardName" [value]="awardname">{{ awardname }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="aspireForm.get('awardName')?.hasError('required')">Award name is required</mat-error>
+    </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill" class="full-width url-link">
+      <input matInput formControlName="url_link" placeholder="URL Link" />
+    </mat-form-field>
+
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" color="warn" class="close-btn-col" (click)="onClose()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="aspireForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,69 @@
+<div id="team-detail-main">
+  <mat-dialog-content class="dialog-container">
+    <div class="editadd-detail">
+      <div class="res-heading" id="top-form-color">
+      <h2 mat-dialog-title id="form-headinghtwo">Resources Details</h2>
+      </div>
+
+    </div>
+    <!-- <mat-divider></mat-divider> -->
+    <div class="dialog-body">
+      <div class="left-section">
+        <table class="profile-skill-table">
+    <tr>
+      <td class="image-cell" id="emp-detail">
+        <img [src]="data.imageUrl" alt="Profile" class="profile-img" />
+      </td>
+
+      <td class="name-cell" id="emp-details">
+        <h3 class="member-name">{{ data.name | uppercase }}</h3>
+      </td>
+
+      <td class="skills-cell fixed-width">
+        SKILL SET
+      </td>
+    </tr>
+  </table>
+
+
+      </div>
+    <!-- <div class="right-side-diag">
+    </div> -->
+
+<div class="right-side-diag" style="display: flex;">
+  <!-- Left: Team Member Details -->
+  <div class="left-details" style="flex: 1;">
+    <table class="details-table">
+      <tr><td id="emp-detail">EMP ID</td><td id="emp-details">: {{ data.empId }}</td></tr>
+      <tr><td>Mail ID</td><td>: {{ data.emailId }}</td></tr>
+      <tr><td>Band</td><td>: {{ data.band }}</td></tr>
+      <tr><td>Region</td><td>: {{ data.region }}</td></tr>
+      <tr><td>Designation</td><td>: {{ data.designation }}</td></tr>
+      <tr><td>AZ Mail ID</td><td>: {{ data.emailAz }}</td></tr>
+      <tr><td>Prid ID</td><td>: {{ data.emailPrid }}</td></tr>
+    </table>
+  </div>
+
+  <!-- Right: Skill Set -->
+  <div class="skill-set" style="flex: 1;">
+    <div *ngFor="let skill of skills; let i = index" [ngClass]="[i % 2 === 0 ? 'even-skill' : 'odd-skill', getSkillColor(skill.level)]" class="skill-row">
+      <span class="skill-name">{{ skill.name }}</span>
+      <mat-progress-bar
+        [value]="skill.level * 10"
+        [color]="skill.color"
+        mode="determinate" id="proSkill">
+      </mat-progress-bar>
+      <!-- <span class="skill-score">({{ skill.level }}/10)</span> -->
+       <span class="skill-score">{{ skill.level }}</span>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </mat-dialog-content>
+    <div mat-dialog-actions align="end" id="buttonlat">
+      <button mat-button id="nodelete" *ngIf="isTeamLeadOrPM()" (click)="onEdit()" >Edit</button>
+      <button mat-button mat-dialog-close  id="yesdelete">Close</button>
+   </div>
+
+</div>

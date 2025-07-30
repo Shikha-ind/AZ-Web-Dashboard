@@ -1,0 +1,92 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+  gap: 20px;
+}
+
+.member-card {
+  text-align: center;
+  background: #ffffff;
+  /* padding: 16px; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+  box-shadow: var(--mat-app-elevation-shadow-level-8, none);
+  position: relative;
+
+}
+
+.member-card img {
+    width: 50%;
+    object-fit: cover
+}
+h3.emp-name {
+    margin: 0px;
+    font-size: 16px;
+}
+p.emp-role{
+    margin: 0px;
+    padding: 0px 0px 5px;
+    font-size: 14px;
+    border-bottom: 1px solid #80808061;
+}
+p.emp-main {
+    margin: 4px 0px 0px 8px;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+img.expand-icon {
+    width: 17px !important;
+    height: 15px !important;
+    margin-right: 6px;
+}
+img.expand-icon:hover {
+    cursor: pointer !important;
+}
+.mat-mdc-form-field-infix {
+    margin-top: -31px;
+    margin-left: 35px !important;
+}
+p.expand-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -23px;
+}
+
+.search-fields {
+    margin-top: -8px;
+}
+
+/* Adjust placeholder padding (within the input itself) */
+.search-bar input::placeholder {
+  padding-left: 4px;
+  font-size: 13px;
+  margin-top:40px;
+}
+.search-bar {
+  --mat-form-field-container-height: 36px; /* for Angular Material v17+ custom vars */
+  font-size: 18px;
+}
+
+
+.do-j {
+    margin-bottom: 0px !important;
+}
+.delete-team{
+    position: absolute;
+    padding: 0px;
+    left: 85%;
+}
+.delete-team:hover {
+    background-color: #ffffff00 !important;
+    background: none;
+}
+button.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base {
+    background-color: #e30b79;
+    color: white;
+}
+
+

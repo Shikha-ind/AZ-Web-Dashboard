@@ -1,0 +1,76 @@
+<div class="res-heading" id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Add Case</h2>
+</div>
+
+<div class="form-container">
+  <form [formGroup]="casestudyForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="addDocument">
+
+    <!-- Row 1: File Name + Related To -->
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput formControlName="file_name" placeholder="File Name" required />
+        <mat-error *ngIf="casestudyForm.get('file_name')?.touched && casestudyForm.get('file_name')?.hasError('required')">
+          File Name is required
+        </mat-error>
+        <mat-error *ngIf="casestudyForm.get('file_name')?.touched && casestudyForm.get('file_name')?.hasError('minlength')">
+          File Name must be at least 3 characters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput formControlName="related_to" placeholder="Related To" required />
+        <mat-error *ngIf="casestudyForm.get('related_to')?.touched && casestudyForm.get('related_to')?.hasError('required')">
+          Related To is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Row 2: Type + Region -->
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-select formControlName="type" placeholder="Type">
+          <mat-option *ngFor="let doctype of documentType" [value]="doctype.document_name">
+            {{ doctype.document_name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="casestudyForm.get('type')?.touched && casestudyForm.get('type')?.hasError('required')">
+          Type is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-select formControlName="region" placeholder="Region">
+          <mat-option *ngFor="let region of regions" [value]="region">
+            {{ region }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="casestudyForm.get('region')?.touched && casestudyForm.get('region')?.hasError('required')">
+          Region is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Row 3: File Upload -->
+     <div class="image-upload">
+    <div class="form-row upload-row image-upload-bg">
+      <label for="fileInput" class="upload-icon-label">
+        <mat-icon class="upload-icon" id="upload">upload</mat-icon>
+        <!-- <span>Select File</span> -->
+      </label>
+      <input type="file" id="fileInput" name="file_action" (change)="onFileSelected($event)" hidden required />
+      <div class="file-preview" *ngIf="selectedFileName">
+        <small>Selected: {{ selectedFileName }}</small>
+      </div>
+    </div>
+   <mat-error *ngIf="fileTypeError" id="file-error">{{ fileTypeError }}</mat-error>
+    </div>
+
+    <!-- Actions -->
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="!casestudyForm.valid || !selectedFile">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

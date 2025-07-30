@@ -1,0 +1,115 @@
+
+<div class="mainlayout-cont">
+  <div class="search-containerbox">
+    <div class="left-div">
+      <h2 class="region-heading">Aspire</h2>
+    </div>
+
+    <div class="right-div">
+      <mat-form-field appearance="outline" class="search-input" id="doctTypeField">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput (keyup)="aspireFilter($event)" placeholder="Type to search..." />
+      </mat-form-field>
+    </div>
+
+    <div class="select-doctype">
+      <mat-form-field appearance="outline" class="type-select" id="doctTypeField">
+        <mat-select [(value)]="selectedType" (selectionChange)="filterByType()">
+          <mat-option value="">Months</mat-option>
+          <mat-option *ngFor="let month of allMonth" [value]="month.value"> {{ month.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+        <div class="aspire-wrapper">
+        <div class="left-column">
+            <mat-card *ngFor="let item of leftAspires" class="aspire-card">
+            <div class="appriciation">
+                    <div class="appr-left">
+                    <h3 class="section-title"> <span class="to-label">To: {{ item.to }}</span></h3>
+                    </div>
+                    <div class="appr-right">
+            <p class="top-appriciation">
+            <button mat-raised-button color="accent" id="service-name">{{ item.service_name }}</button>
+                        <button mat-button class="badge-button" id="region-name">{{ item.region_name }}</button>
+                        <button class="thumb-up" (click)="toggleLike(item)">
+                            <i class="fa" [ngClass]="item.isLiked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
+                            {{ item.likes }}
+                        </button>
+            </p>
+                    </div>
+                    </div>
+                    <div class="award-para">
+                    <p>Monthly Award: <span class="name-award">{{ item.award_name}}</span></p>
+                    <p>Aspire URL Link: {{ item.url_link }}</p>
+                    </div>
+            <div class="appr-left">
+            <p class="from-text">From - {{ item.from }}</p>
+            </div>
+            </mat-card>
+            
+        </div>
+
+        <div class="right-column">
+            <mat-card *ngFor="let item of rightAspires" class="aspire-card">
+            <div class="appriciation">
+                    <div class="appr-left">
+                    <h3 class="section-title"><span class="to-label">To: {{ item.to }}</span></h3>
+                    </div>
+                    <div class="appr-right">
+            <p class="top-appriciation">
+            <button mat-raised-button color="accent" id="service-name">{{ item.service_name }}</button>
+                        <button mat-button class="badge-button" id="region-name">{{ item.region_name }}</button>
+                        <button class="thumb-up" (click)="toggleLike(item)">
+                            <i class="fa" [ngClass]="item.isLiked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
+                            {{ item.likes }}
+                        </button>
+            </p>
+                    </div>
+                    </div>
+                    <div class="award-para">
+                    <p>Monthly Award: <span class="name-award">{{ item.award_name}}</span></p>
+                    <p>Aspire URL Link: {{ item.url_link }}</p>
+                    </div>
+            <div class="appr-left">
+            <p class="from-text">From - {{ item.from }}</p>
+            </div>
+            </mat-card>
+        </div>
+    </div>
+
+  <!-- Add Testimonial Button -->
+  <div class="bottom-cont">
+    <div class="documents-add">
+      <button mat-raised-button color="primary" *ngIf="isTeamLeadOrPM()" (click)="openAddAspire()">
+        Add Aspire
+      </button>
+    </div>
+
+      <!-- Pagination 1, 2 -->
+      <div class="custom-paginator">
+          <button mat-button [disabled]="currentPage === 1" (click)="changePages(currentPage - 1)">
+              &lt;
+          </button>
+
+          <ng-container *ngFor="let page of pages">
+              <button mat-button [class.active]="page === currentPage" (click)="changePages(page)">
+              {{ page }}
+              </button>
+          </ng-container>
+
+          <button mat-button [disabled]="currentPage === totalsPages" (click)="changePages(currentPage + 1)">
+              &gt;
+          </button> 
+      </div>
+  </div>
+  
+ </div>
+
+
+
+
+
+
+

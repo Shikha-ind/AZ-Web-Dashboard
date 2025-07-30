@@ -1,0 +1,35 @@
+<div class="res-heading" id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Issue Details</h2>
+</div>
+<div class="issue-track">
+    <mat-card id="issue-details-card">
+    <div class="info-grid">
+        <div class="row-1"><strong>Region</strong>: {{ issue.region }}</div>
+        <div class="row-1"><strong>Workstream</strong>: {{ issue.workstream }}</div>
+        <div class="row-1"><strong>Likelihood</strong>: {{ issue.likelihood }}</div>
+
+        <div class="row-1"><strong>Reported By</strong>: {{ issue.reported_by }}</div>
+        <div class="row-1"><strong>Stage Affected</strong>: {{ issue.stage }}</div>
+        <div class="row-1"><strong>Impact</strong>: {{ issue.impact }}</div>
+
+        <div class="row-1"><strong>Reported Date</strong>: {{ issue.reported_date | date }}</div>
+        <div class="row-1"><strong>Ticket #</strong>: {{ issue.ticket_no }}</div>
+        <div class="row-1"><strong>Issue Owner</strong>: {{ issue.issue_owner }}</div>
+
+        <div class="row-1"><strong>Campaign Name</strong>: {{ issue.campaign_name }}</div>
+        <div class="row-1"><strong>Paid</strong>: {{ issue.paid }}</div>
+        <div class="row-1"><strong>Status</strong>: {{ issue.status }}</div>
+    </div>
+
+    <div class="description-section">
+        <p class="row-1"><strong>Issue Description</strong>: {{ issue.issue_description }}</p>
+        <p class="row-1"><strong>Mitigation Plan</strong>: {{ issue.mitigation_plan }}</p>
+        <p class="row-1"><strong>RC Summary</strong>: {{ issue.rc_summary }}</p>
+    </div>
+    </mat-card>
+
+   <div mat-dialog-actions align="end" id="buttonlat">
+      <button mat-button id="nodelete" *ngIf="isTeamLeadOrPM()" (click)="onEdit()" >Edit</button>
+      <button mat-button mat-dialog-close  id="yesdelete">Close</button>
+   </div>
+</div>
