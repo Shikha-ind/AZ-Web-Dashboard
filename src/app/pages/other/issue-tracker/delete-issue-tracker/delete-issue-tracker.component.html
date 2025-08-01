@@ -1,0 +1,9 @@
+<div class="res-heading" id="top-form-color">
+<h2 mat-dialog-title id="form-headinghtwo">Delete Information </h2>
+</div>
+<p class="delete-cont">Do you want to proceed with deleting the Issue details?</p>
+
+<mat-dialog-actions align="end" id="deleteDoc">
+  <button mat-button id="nodelete" (click)="onNoClick()">No</button>
+  <button mat-raised-button color="warn" id="yesdelete" (click)="onYesClick(data)" [disabled]="isDeleting">Yes</button>
+</mat-dialog-actions>

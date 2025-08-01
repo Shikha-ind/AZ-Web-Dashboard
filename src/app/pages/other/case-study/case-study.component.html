@@ -1,0 +1,119 @@
+
+<div class="mainlayout-cont">
+  <div class="search-containerbox">
+    <div class="left-div">
+        <h2 class="region-heading" >Case Study</h2>
+    </div>
+    <div class="right-div">
+     <div> 
+        <mat-form-field appearance="outline" class="search-input" id="doctTypeField">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" id="docSearch" placeholder="Type file name..." />
+        </mat-form-field>
+     </div>
+    </div>
+    <div class="select-doctype">
+       <mat-form-field appearance="outline" class="type-select" id="doctTypeField">
+    <mat-select [(value)]="selectedType" (selectionChange)="filterByType()">
+      <mat-option value="">All Type</mat-option>
+      <mat-option *ngFor="let doctype of documentType" [value]="doctype.document_name">
+          {{ doctype.document_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+    </div>
+  </div>
+
+ <div class="table-casestudy">
+  <table mat-table [dataSource]="paginatedDocuments" class="mat-elevation-z8 full-width-table" id="documentTable">
+
+    <!-- Serial No -->
+    <ng-container matColumnDef="serial_no">
+      <th mat-header-cell *matHeaderCellDef> Serial No </th>
+      <td mat-cell *matCellDef="let doc; let i = index">  {{ (currentPage - 1) * pageSize + i + 1 }} </td>
+    </ng-container>
+
+    <!-- File Name -->
+    <ng-container matColumnDef="file_name">
+      <th mat-header-cell *matHeaderCellDef> File Name </th>
+      <td mat-cell *matCellDef="let doc"> {{ doc.file_name }} </td>
+    </ng-container>
+
+    <!-- Related To -->
+    <ng-container matColumnDef="related_to">
+      <th mat-header-cell *matHeaderCellDef> Related To </th>
+      <td mat-cell *matCellDef="let doc"> {{ doc.related_to }} </td>
+    </ng-container>
+
+    <!-- Type -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+           <td mat-cell *matCellDef="let doc">
+      <img
+    *ngIf="doc.iconUrl"
+    [src]="doc.iconUrl"
+    width="20"
+    height="20"
+    style="vertical-align: middle; margin-right: 6px;"
+  />  </td>
+ 
+    </ng-container>
+
+    <!-- Region -->
+    <ng-container matColumnDef="region">
+      <th mat-header-cell *matHeaderCellDef> Region </th>
+      <td mat-cell *matCellDef="let doc"> {{ doc.region }} </td>
+    </ng-container>
+
+    <!-- Action -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let doc">
+          <!-- View icon -->
+        <button mat-icon-button (click)="viewFile(doc.file_action)">
+          <mat-icon>visibility</mat-icon>
+      </button>
+
+          <!-- Download icon -->
+        <a *ngIf="doc.file_action" [href]="getDownloadUrl(doc.file_action)" [download]="doc.file_action">
+          <button mat-icon-button>
+          <mat-icon>download</mat-icon>
+          </button></a>
+
+         <button mat-icon-button *ngIf="isTeamLeadOrPM()" class="delete-team" (click)="opendocDeleteDialog(doc)">
+          <mat-icon>more_vert</mat-icon>
+          </button>
+          
+      </td>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+  <div class="bottom-cont">
+    <div class="documents-add">
+      <button mat-raised-button color="primary" *ngIf="isTeamLeadOrPM()" (click)="openAddCasedialog()">Add Case</button>
+    </div>
+
+    <!-- Pagination 1, 2 -->
+      <div class="custom-paginator">
+          <button mat-button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+              &lt;
+          </button>
+
+          <ng-container *ngFor="let page of pages">
+              <button mat-button [class.active]="page === currentPage" (click)="changePage(page)">
+              {{ page }}
+              </button>
+          </ng-container>
+
+          <button mat-button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+              &gt;
+          </button> 
+      </div>
+
+  </div>
+</div>

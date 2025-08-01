@@ -1,0 +1,106 @@
+
+<div class="mainlayout-cont">
+  <div class="search-containerbox">
+    <div class="left-div">
+      <h2 class="region-heading">Testimonials</h2>
+    </div>
+
+    <div class="right-div">
+      <mat-form-field appearance="outline" class="search-input" id="doctTypeField">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Type to search..." />
+      </mat-form-field>
+    </div>
+
+    <div class="select-doctype">
+      <mat-form-field appearance="outline" class="type-select" id="doctTypeField">
+        <mat-select [(value)]="selectedType" (selectionChange)="filterByType()">
+          <mat-option value="">Months</mat-option>
+          <mat-option *ngFor="let month of allMonth" [value]="month.value"> {{ month.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+    <div *ngFor="let item of paginatedTestimonials">
+    <mat-card class="testimonial-card slide-row">
+    <!-- Cards -->
+    <div class="testimonial-left">     
+        <!-- <div > -->
+          <div class="appriciation">
+            <div class="appr-left">
+              <h3 class="section-title">Appreciation & Recognition</h3>
+            </div>
+            <div class="appr-right">
+              <p class="top-appriciation">
+                <span class="to-label">To {{ item.to }}</span>
+                <a [href]="getDownloadUrl(item.upload_path!)" [download]="item.upload_path" >
+                  <img [src]="openEnvelop" class="envelop" style="cursor: pointer;" title="Download file" />
+                </a>
+              <button mat-raised-button color="accent" id="service-name">{{ item.service_name }}</button>
+                <button mat-button class="badge-button" id="region-name">{{ item.region_name }}</button>
+                <button class="thumb-up" (click)="toggleLike(item)">
+                  <!-- <i class="fa fa-thumbs-up"></i> {{ item.likes }} -->
+                    <i class="fa" [ngClass]="item.isLiked ? 'fa-thumbs-up' : 'fa-thumbs-o-up'"></i>
+                    {{ item.likes }}
+                </button>
+              </p>
+            </div>
+          </div>
+          <!-- <p>Hi Team,</p> -->
+          <p>{{ item.content }}</p>
+        <!-- </div> -->
+
+    <!-- Pagination dots -->
+    <div class="appr-left">
+      <p class="from-text">From - {{ item.from }}</p>
+    </div>
+  </div>
+    <div class="testimonial-right">
+        <div class="badge-ribbon">
+          <img [src]="imageBudges" class="budges" />
+        </div>
+        <img [src]="teamBox" alt="Team" />
+        <div class="team-reg">
+          <h4>TEAM EUCAN</h4>
+          <p class="subtext">Leadname & Team</p>
+        </div>
+    </div>
+      </mat-card>
+  </div>
+
+
+
+  <!-- Add Testimonial Button -->
+  <div class="bottom-cont">
+    <div class="documents-add">
+      <button mat-raised-button color="primary" *ngIf="isTeamLeadOrPM()" (click)="openAddTestimonial()">
+        Add Testimonials
+      </button>
+    </div>
+
+      <!-- Pagination 1, 2 -->
+      <div class="custom-paginator">
+          <button mat-button [disabled]="currentPages === 1" (click)="changePages(currentPages - 1)">
+              &lt;
+          </button>
+
+          <ng-container *ngFor="let page of pages">
+              <button mat-button [class.active]="page === currentPages" (click)="changePages(page)">
+              {{ page }}
+              </button>
+          </ng-container>
+
+          <button mat-button [disabled]="currentPages === totalsPages" (click)="changePages(currentPages + 1)">
+              &gt;
+          </button> 
+      </div>
+  </div>
+ </div>
+
+
+
+
+
+

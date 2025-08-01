@@ -1,0 +1,45 @@
+<div class="res-heading" id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Project Details</h2>
+</div>
+<div class="issue-track">
+    <mat-card id="issue-details-card">
+    <div class="info-grid">
+        <div class="row-1"><strong>Jira ID</strong>: {{ data.next_id }}</div>
+        <div class="row-1"><strong>Language</strong>: EN</div>
+        <div class="row-1"><strong>Cost</strong>: {{ data.cost }}</div>
+
+        <div class="row-1"><strong>Mysheet ID</strong>: mysheet</div>
+        <div class="row-1"><strong>Brand</strong>: {{ data.brand }}</div>
+        <div class="row-1"><strong>PO#</strong>: {{ data.po_number }}</div>
+
+        <div class="row-1"><strong>Market</strong>: {{ data.market }}</div>
+        <div class="row-1"><strong>Status</strong>: {{ data.status }}</div>
+        <div class="row-1"><strong>Invoice #</strong>: Invoice</div>
+
+        <div class="row-1"><strong>Project Name</strong>: {{ data.project_name }}</div>
+        <div class="row-1"><strong>AM/DM</strong>: {{ data.project_manager }}</div>
+        <div class="row-1"><strong>Month Received</strong>: {{ data.month }}</div>
+
+        <div class="row-1"><strong>Start Date</strong>: {{ data.start_date | date}}</div>
+        <div class="row-1"><strong>PM</strong>: {{ data.project_manager }}</div>
+        <div class="row-1"><strong># of Pages</strong>: {{ data.no_of_pages }}</div>
+
+        <div class="row-1"><strong>End Date</strong>: {{ data.end_date | date }}</div>
+        <div class="row-1"><strong>Web Lead</strong>: name</div>
+        <div class="row-1"><strong>Scope</strong>: {{ data.scope }}</div>
+
+        <div class="row-1"><strong>GO Live Date</strong>: {{ data.end_date | date }}</div>
+        <div class="row-1"><strong>Developer</strong>: {{ data.developer }}</div>
+        <div class="row-1"><strong></strong></div>
+    </div>
+
+    <div class="description-section">
+        <p class="row-1"><strong>Comments</strong>: {{ data.comments }}</p>
+    </div>
+    </mat-card>
+
+   <div mat-dialog-actions align="end" id="buttonlat">
+      <button mat-button id="nodelete" *ngIf="isTeamLeadOrPM()" (click)="onEdit()" >Edit</button>
+      <button mat-button mat-dialog-close  id="yesdelete">Close</button>
+   </div>
+</div>

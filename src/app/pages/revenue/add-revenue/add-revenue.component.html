@@ -1,0 +1,96 @@
+<div class="res-heading" id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Add Details</h2>
+</div>
+
+<mat-card class="form-card">
+  <form [formGroup]="revenueForm" (ngSubmit)="onSubmit()" id="addDocument" autocomplete="off">
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <!-- <input matInput formControlName="region" placeholder="Region" /> -->
+      <mat-select formControlName="region" placeholder="Region">
+          <mat-option *ngFor="let region of regions" [value]="region">
+            {{ region }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="onsite_revenue" placeholder="Onsite Revenue" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="onsite_hc" placeholder="Onsite HC" />
+      </mat-form-field>
+</div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="offshore_revenue" placeholder="Offshore Revenue" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="offshore_hc" placeholder="Offshore HC" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="ideal_hc_nearshore" placeholder="Ideal HC Nearshore" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="ideal_hc_offshore" placeholder="Ideal HC Offshore" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="excess_offshore" placeholder="Excess Offshore" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="excess_nearshore" placeholder="Excess Nearshore" />
+      </mat-form-field>
+    </div>
+    <p id="revenue-para">Revenue Break Up</p>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="canada_fte" placeholder="Canada FTE" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="uk_fte" placeholder="UK FTE" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="uk_catalog" placeholder="UK Catalog" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="ceeba_hcp" placeholder="CEEBA HCP" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="wese_catalog" placeholder="WESE Catalog" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <input matInput type="number" formControlName="canada_catalog" placeholder="Canada Catalog" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="full-width">
+        <textarea matInput rows="3" formControlName="plan_of_action" placeholder="Plan of Action"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Actions -->
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="revenueForm.invalid">
+        Save
+      </button>
+    </div>
+
+  </form>
+</mat-card>

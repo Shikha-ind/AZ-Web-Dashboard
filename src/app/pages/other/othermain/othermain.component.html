@@ -1,0 +1,13 @@
+<div class="other-container">
+    <h2>Other</h2>
+  <div class="card-grid">
+    <mat-card class="other-card" *ngFor="let item of modules">
+      <img [src]="item.icon" alt="{{ item.title }}" class="icon" />
+      <div class="title">{{ item.title }}</div>
+      <div id="other-enterbtn">
+          <a mat-raised-button color="accent" class="enter-button" [routerLink]="[item.enter]">ENTER</a>
+      </div>
+    </mat-card>
+  </div>
+  
+</div>

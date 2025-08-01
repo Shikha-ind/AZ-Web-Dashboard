@@ -1,0 +1,127 @@
+<div id="top-form-color">
+<h2 mat-dialog-title id="form-headinghtwo">Team Information</h2>
+</div>
+<div class="add-team-container">
+  <form [formGroup]="teamForm" (ngSubmit)="save()" class="form-add">
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width compact-input">
+      <input matInput formControlName="empId" required class="input-team" placeholder="EMP ID">
+      <mat-error *ngIf="teamForm.get('empId')?.touched && teamForm.get('empId')?.hasError('required')">EMP ID is required</mat-error>
+      <mat-error *ngIf="teamForm.get('empId')?.hasError('duplicate')"> Employee ID already exists</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="name" required placeholder="Name">
+      <mat-error *ngIf="teamForm.get('name')?.touched && teamForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+    </div>
+
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="band" required placeholder="Band">
+      <mat-error *ngIf="teamForm.get('band')?.touched && teamForm.get('band')?.hasError('required')">Band is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="emailId" required placeholder="IND Email ID">
+      <mat-error *ngIf="teamForm.get('emailId')?.touched && teamForm.get('emailId')?.hasError('required')">IND Email ID is required</mat-error>
+    </mat-form-field>
+    </div>
+
+    <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="emailAz" placeholder="AZ Email ID">
+      <mat-error *ngIf="teamForm.get('emailAz')?.touched && teamForm.get('emailAz')?.hasError('required')">AZ Email ID is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="emailPrid" placeholder="PRID ID">
+      <mat-error *ngIf="teamForm.get('emailPrid')?.touched && teamForm.get('emailPrid')?.hasError('required')">PRID ID is required</mat-error>
+    </mat-form-field>
+   </div>
+<div class="form-row">
+<mat-form-field appearance="fill" class="half-width">
+  <!-- <mat-label>Region</mat-label> -->
+  <mat-select formControlName="region" id="roleSelect" required>
+    <mat-option value="" disabled>Select Region</mat-option>
+    <mat-option *ngFor="let region of regionList" [value]="region.region_name">
+      {{ region.region_name }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="teamForm.get('region')?.touched && teamForm.get('region')?.hasError('required')">Region is required</mat-error>
+</mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="designation" placeholder="Designation" required>
+      <mat-error *ngIf="teamForm.get('designation')?.touched && teamForm.get('designation')?.hasError('required')">Designation is required</mat-error>
+    </mat-form-field>
+  </div>
+
+<div class="form-row">
+
+  <!-- Skill Set Section -->
+  <div formArrayName="skills" class="skills-section half-width">
+    <div *ngFor="let skill of skillForms.controls; let i = index" [formGroupName]="i" class="skill-row">
+      
+      <!-- Skill Name -->
+      <mat-form-field appearance="fill" class="skill-input">
+        <input matInput formControlName="name" placeholder="Skill Name" required />
+      </mat-form-field>
+
+      <!-- Skill Level -->
+      <mat-form-field appearance="fill" class="skill-input" id="skillLevel">
+        <input matInput formControlName="level" type="number" min="1" max="10" placeholder="Skill Level"  required />
+      </mat-form-field>
+
+      <!-- Remove Button -->
+      <button mat-icon-button color="warn" type="button" (click)="removeSkill(i)" *ngIf="skillForms.length > 1">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </div>
+
+
+    <!-- Add Button -->
+    <div class="add-skill-row">
+      <button mat-mini-fab color="primary" type="button" (click)="addSkill()" id="plusButton">
+        <mat-icon>add </mat-icon>Add Skill
+      </button>
+      <!-- <span>Add Skill</span> -->
+    </div>
+  </div>
+
+    <!-- Date Picker -->
+    <div class="dtae">
+    <mat-form-field appearance="fill" class="half-width" id="date-picker">
+      <input matInput [matDatepicker]="picker" formControlName="date_of_joining" placeholder="Date of Joining" required />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="teamForm.get('date_of_joining')?.touched && teamForm.get('date_of_joining')?.hasError('required')">Date of Joining is required</mat-error>
+    </mat-form-field>
+  </div>
+
+
+</div>
+
+
+    <!-- Image Upload Section -->
+    <div class="image-upload" id="image-upload">
+      <div class="image-upload-bg">
+        <label for="imageInput" class="upload-icon-label">
+          <mat-icon class="upload" id="upload">upload</mat-icon>
+        </label>
+        <input type="file" id="imageInput" (change)="onImageSelected($event)" accept="image/*" hidden />
+
+        <div class="image-preview" *ngIf="imagePreview">
+          <img [src]="imagePreview" alt="Preview" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialog Actions -->
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="!teamForm.valid">Save</button>
+    </div>
+
+  </form>
+</div>

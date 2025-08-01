@@ -1,0 +1,65 @@
+<div class="res-heading" id="top-form-color">
+<h2 mat-dialog-title id="form-headinghtwo">Add RCA</h2>
+</div>
+<form [formGroup]="rcaForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="addDocument">
+
+  <div class="form-row">
+<mat-form-field appearance="fill" class="half-width">
+  <mat-select formControlName="region" placeholder="Region">
+    <mat-option *ngFor="let region of regions" [value]="region">
+      {{ region }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="rcaForm.get('region')?.touched && rcaForm.get('region')?.hasError('required')">
+    Region is required
+  </mat-error>
+</mat-form-field>
+
+    <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="reported_by" placeholder="Reported By" required/>
+        <mat-error *ngIf="rcaForm.get('reported_by')?.touched && rcaForm.get('reported_by')?.hasError('required')">Reported By is required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="half-width">
+      <!-- <input matInput formControlName="type" placeholder="Type" required/> -->
+      <mat-select formControlName="type" placeholder="Type">
+          <mat-option *ngFor="let doctype of documentType" [value]="doctype.document_name">
+           {{ doctype.document_name }}
+         </mat-option>
+       </mat-select>
+      <mat-error *ngIf="rcaForm.get('type')?.touched && rcaForm.get('type')?.hasError('required')">Type is required</mat-error>
+    </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill" class="half-width">
+      <input matInput formControlName="root_cause" placeholder="Root cause" required/>
+       <mat-error *ngIf="rcaForm.get('root_cause')?.touched && rcaForm.get('root_cause')?.hasError('required')">Root Cause is required</mat-error>
+       <mat-error *ngIf="rcaForm.get('root_cause')?.touched && rcaForm.get('root_cause')?.hasError('minlength')">Root cause must be at least 3 characters</mat-error>
+    </mat-form-field>
+  </div>
+  
+
+  <!-- Row 3: File Upload -->
+  <div class="form-row" id="image-upload">
+    <div class="image-upload-bg">
+      <label for="fileInput" class="upload-icon-label">
+        <mat-icon class="upload" id="upload">upload</mat-icon></label>
+      <input type="file" name="action_file" id="fileInput" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp3" hidden required />
+      <div class="file-preview" *ngIf="selectedFileName">
+        <small>Selected: {{ selectedFileName }}</small>
+      </div>
+    </div>
+  </div>
+  <mat-error *ngIf="fileTypeError">{{ fileTypeError }}</mat-error>
+
+  <!-- Actions -->
+  <div mat-dialog-actions align="end">
+    <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+    <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="!rcaForm.valid || !selectedFile">
+      Save
+    </button>
+  </div>
+</form>

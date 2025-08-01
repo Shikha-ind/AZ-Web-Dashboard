@@ -1,0 +1,159 @@
+
+.dialog-container {
+      padding: 0px;
+}
+
+.section-title {
+color: #0b4aa2;
+    margin: 20px;
+    font-size: 17px;
+  font-weight: bold;
+  border-bottom: 2px solid #e91e63;
+  display: inline-block;
+}
+
+.dialog-body {
+  display: flex;
+     /* margin: 24px 20px; */
+  flex-direction: column;
+      background: white;
+}
+
+.left-section {
+  /* flex: 0 0 120px; */
+  margin-right: 24px;
+  padding: 7px 20px;
+  background-color: #f9fafb;
+  margin: 20px 0px;
+}
+
+.profile-img {
+  border-radius: 8px;
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border: 2px solid #e91e63;
+}
+
+.member-name {
+    color: #0b4aa2;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0px 0px 0px 65px;
+    display: inline-flex;
+}
+td.skills-cell {
+    color: #0b4aa2;
+    font-weight: 600;
+    font-size: 16px;
+}
+table.details-table {
+    width: 100%;
+}
+table.details-table tr td{
+        padding: 10px 0px 10px 24px;
+}
+.right-section .details-table td {
+  /* padding: 10px 26px; */
+  vertical-align: top;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.skill-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0d47a1;
+  margin-bottom: 12px;
+}
+
+.skill-row {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+  /* width: 75%; */
+  padding-right: 134px;
+  font-size: 13px;
+}
+
+.skill-name {
+  width: 160px;
+  font-size: 14px;
+}
+
+.skill-score {
+    /* margin-left: 8px; */
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -20px;
+      
+}
+
+.fixed-width {
+  width: 49%;
+  padding: 10px 0px !important;
+}
+td#emp-detail {
+  width: 10%;
+}
+td#emp-details {
+  width: 40%;
+}
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.even-skill {
+  background-color: #f9f9f9;
+  padding-top:8px;
+  padding-bottom: 8px;
+}
+.odd-skill {
+  background-color: #ffffff;
+}
+.right-side-diag {
+    margin-bottom: 20px;
+}
+div#buttonlat {
+    background-color: white;
+}
+
+
+/* tttyytyty */
+
+#issue-details-card {
+    padding: 3px 0px;
+    box-shadow: unset !important;
+    background-color: #ffffff;
+    box-sizing: unset !important;
+    border-radius: unset !important;
+    border-color: unset !important;
+}
+
+
+ .row-1{
+    background-color: #f9f9f9;
+    padding: 8px 0px 8px 20px;
+    margin-top: 16px;
+ }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 12px 24px; */
+  font-size: 14px;
+}
+
+.description-section p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #444;
+}
+mat-dialog-container#mat-mdc-dialog-0, mat-dialog-container#issueDetail {
+    max-width: 770px;
+}
+div#buttonlat {
+    background-color: #f9f9f9;
+}
+
+

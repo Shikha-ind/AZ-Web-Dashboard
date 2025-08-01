@@ -1,0 +1,34 @@
+#issue-details-card {
+    padding: 3px 0px;
+    box-shadow: unset !important;
+    background-color: #ffffff;
+    box-sizing: unset !important;
+    border-radius: unset !important;
+    border-color: unset !important;
+}
+
+
+ .row-1{
+    background-color: #f9f9f9;
+    padding: 8px 0px 8px 20px;
+    margin-top: 16px;
+ }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 12px 24px; */
+  font-size: 14px;
+}
+
+.description-section p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #444;
+}
+mat-dialog-container#mat-mdc-dialog-0, mat-dialog-container#issueDetail {
+    max-width: 770px;
+}
+div#buttonlat {
+    background-color: #f9f9f9;
+}

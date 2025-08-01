@@ -1,0 +1,62 @@
+<div class="res-heading" id="top-form-color">
+  <h2 mat-dialog-title id="form-headinghtwo">Add Risk</h2>
+</div>
+
+<form [formGroup]="riskForm" (ngSubmit)="onSubmit()" class="risk-form" id="addDocument">
+
+<div class="form-row">
+        <mat-form-field appearance="fill" class="half-width">
+        <mat-select formControlName="region" placeholder="Region">
+          <mat-option *ngFor="let region of regions" [value]="region">
+            {{ region }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="riskForm.get('region')?.touched && riskForm.get('region')?.hasError('required')">
+          Region is required
+        </mat-error>
+      </mat-form-field>
+
+  <mat-form-field appearance="fill" class="half-width">
+    <input matInput formControlName="reported_by" placeholder="Reported by" />
+    <mat-error *ngIf="riskForm.get('reported_by')?.hasError('required')">Reported By is required</mat-error>
+  </mat-form-field>
+  </div>
+<div class="form-row">
+  <mat-form-field appearance="fill" class="half-width">
+    <mat-select formControlName="priority" placeholder="Priority">
+      <mat-option *ngFor="let p of priorities" [value]="p">{{ p }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="riskForm.get('priority')?.hasError('required')">Priority is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="half-width">
+    <mat-select formControlName="status" placeholder="Status">
+      <mat-option *ngFor="let s of statuses" [value]="s">{{ s }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="riskForm.get('status')?.hasError('required')">Status is required</mat-error>
+  </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <textarea matInput formControlName="risk_description" rows="4" placeholder="Describe the risk"></textarea>
+    <mat-error *ngIf="riskForm.get('risk_description')?.hasError('required')">Risk description is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <input matInput formControlName="impact_area" placeholder="Area affected" />
+    <mat-error *ngIf="riskForm.get('impact_area')?.hasError('required')">Impact area is required</mat-error>
+  </mat-form-field>
+
+  <!-- <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="riskForm.invalid">Submit</button>
+    <button mat-button type="button" (click)="onReset()">Reset</button>
+  </div> -->
+      <!-- Actions -->
+    <div mat-dialog-actions align="end">
+      <button mat-button type="button" class="close-btn-col" (click)="onCancel()">Close</button>
+      <button mat-raised-button color="primary" type="submit" class="add-btn-col" [disabled]="riskForm.invalid">
+        Save
+      </button>
+    </div>
+</form>
+

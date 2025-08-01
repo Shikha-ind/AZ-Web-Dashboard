@@ -1,0 +1,12 @@
+.mainlayout-cont {
+    min-height: 92vh !important;
+}
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-action.mat-column-action {
+    width: 16%;
+}
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-reported_by.mat-column-reported_by,
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-region.mat-column-region,
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-month.mat-column-month,
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-serial_no.mat-column-serial_no  {
+    width: 12%;
+}

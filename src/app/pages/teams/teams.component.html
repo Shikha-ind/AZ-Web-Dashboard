@@ -1,0 +1,90 @@
+<div class="mainlayout-cont">
+  <div class="search-containerbox">
+    <div class="left-div">
+        <h2 class="region-heading">
+        {{ selectedRegion ? selectedRegion : 'All Teams' }}
+      </h2>
+    </div>
+  <!-- Search team with role -->
+  <div class="right-div">
+    <div>
+      <mat-form-field appearance="outline" class="search-bar" id="alldata-get">
+        <!-- <mat-label>Search team member</mat-label> -->
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [(ngModel)]="searchText" (ngModelChange)="onSearchChange()" placeholder="Type name or role" class="search-fields">
+        <button mat-icon-button matSuffix *ngIf="searchText" (click)="searchText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+  <!-- Market dropdown filter -->
+    <div class="select-market">
+      <mat-form-field appearance="outline" class="market-filter" id="alldata-get">
+        <mat-select [(ngModel)]="selectedRegion" (selectionChange)="onMarketChange()">
+          <mat-option value="">All Markets</mat-option>
+          <mat-option *ngFor="let region of regionList" [value]="region.region_name">
+            {{ region.region_name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  </div>
+
+  <!-- Display Team member list-->
+  <div class="grid-container">
+    <div class="member-card" *ngFor="let member of paginatedFilteredMembers">
+    
+      <!-- <img [src]="member.imageUrl ||  imageUrl: ['https://t3.ftcdn.net/jpg/06/33/54/78/360_F_633547842_AugYzexTpMJ9z1YcpTKUBoqBF0CUCk10.jpg']" alt="{{ member.name }}"> -->
+      <img [src]="member.imageUrl || 'https://img.freepik.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4195.jpg?semt=ais_hybrid&w=740'" alt="{{ member.name }}">
+
+
+      <button mat-icon-button *ngIf="isTeamLeadOrPM()" class="delete-team" (click)="openDeleteDialog(member)">
+      <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <h3 class="emp-name">{{ member.name }}</h3>
+      <p class="emp-role">{{ member.designation }}</p>
+
+      <div class="team-details">
+        <p class="emp-main">Emp ID: {{ member.empId }}</p>
+        <p class="emp-main">Email ID: {{ member.emailId }}</p>
+        <p class="emp-main">Band: {{ member.band }}</p>
+        <p class="emp-main do-j">DOJ: {{ member.date_of_joining | date:'dd/MM/yyyy' }}</p>
+      </div>
+
+      <p class="expand-button" (click)="openDetails(member)">
+        <img [src]="expand" class="expand-icon">
+      </p>
+    </div>
+  </div>
+
+  <div class="bottom-cont">
+      <div class="add-team-btn">
+          <!-- Add team member button -->
+          <button *ngIf="isTeamLeadOrPM()" mat-raised-button color="primary" (click)="openAddDialog()">
+          Add 
+          </button>
+      </div>
+
+      <!-- Pagination 1, 2 -->
+      <div class="custom-paginator">
+          <button mat-button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+              &lt;
+          </button>
+
+          <ng-container *ngFor="let page of pages">
+              <button mat-button [class.active]="page === currentPage" (click)="changePage(page)">
+              {{ page }}
+              </button>
+          </ng-container>
+
+          <button mat-button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+              &gt;
+          </button> 
+      </div>
+
+  </div>
+
+</div>
